@@ -246,6 +246,7 @@ class MessageType(str, Enum):
   INFO = "info"  # transient info message only used in streaming
   ERROR = "error"  # error message
   THINKING = "thinking"  # thinking message that persist in the thinking panel
+  INTERNAL_EVAL_ONLY = "internal_eval_only"  # internal_eval_only message only used in dev
 
   # mutation messages
   UPDATE = (

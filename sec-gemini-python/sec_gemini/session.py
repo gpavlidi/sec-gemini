@@ -601,9 +601,9 @@ class InteractiveSession:
       try:
         async with websockets.connect(
           url,
-          ping_interval=20,  # seconds
-          ping_timeout=20,  # seconds
-          close_timeout=60,
+          ping_interval=20000,  # seconds
+          ping_timeout=20000,  # seconds
+          close_timeout=60000,
         ) as ws:
           # Send request
           await ws.send(message.model_dump_json())
@@ -612,6 +612,7 @@ class InteractiveSession:
           while True:
             try:
               data = await ws.recv(decode=True)
+              print(f"Message from SDK:\n{data}\n")
               msg = Message.from_json(data)
               log.debug(f"Received message {msg}")
               if msg.status_code != ResponseStatus.OK:
