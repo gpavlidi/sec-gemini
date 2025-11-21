@@ -662,8 +662,8 @@ class InteractiveSession:
         )
         async with websockets.connect(
           url,
-          ping_interval=20,  # seconds
-          ping_timeout=600,  # seconds
+          ping_interval=None,  # seconds
+          ping_timeout=None,  # seconds
           close_timeout=60,
         ) as ws:
           log.debug("Connection succeeded!")
